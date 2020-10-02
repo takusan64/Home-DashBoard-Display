@@ -1,0 +1,14 @@
+version: "3.7"
+
+services:
+  app:
+    build: .
+    environment:
+      - TZ=Asia/Tokyo
+      - NODE_RED_ENABLE_PROJECTS=false
+    ports:
+      - "1880:1880"
+    volumes:
+      - ./data:/data
+    restart: unless-stopped
+    privileged: true
